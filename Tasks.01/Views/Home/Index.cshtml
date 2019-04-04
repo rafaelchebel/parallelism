@@ -1,0 +1,32 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<hr />
+<div class="row">
+    <ul class="list-group">
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <li class="list-group-item">@item</li>
+            }
+        }
+    </ul>
+</div>
+
+<div class="row">
+    <a asp-action="Process" data-toggle="tooltip" title="process">
+        Processar <i class="glyphicon"></i>
+    </a>
+    @*<a href="@Url.Action("Index", new { id = Model })" data-toggle="tooltip" title="Processar">
+        <i class="glyphicon glyphicon-trash"></i>
+    </a>*@
+    <a asp-action="Cancel" data-toggle="tooltip" title="cancel">
+        Cancelar <i class="glyphicon"></i>
+    </a>
+</div>
+
+<div>Tempo decorrido: @ViewBag.TimeElapsed</div>
